@@ -1,0 +1,49 @@
+Before Learning React, we should know about these topics
+
+HTML and CSS
+
+Basics of JavaScript
+> Variables 
+  * var
+  * let 
+  * const
+
+> Hoisting of variables
+
+
+Functions in JS
+> Arrow Functions
+> Higher order functions
+
+
+Arrays and Objects
+> Array Destructuring
+> Object Destructuring
+> rest operator
+> spread operator
+
+Conditions in JavaScript
+> if else
+> ternary operator
+> using && and ||
+> Optional Chaining
+
+Array Methods
+> map()
+> filter()
+> reduce()
+> sort()
+
+Event Listeners
+> onclick
+> onBlur
+> onChange
+> onFocus
+setTimeout() & setInterval()
+(Event Bubbling Capturing aka Tracking in JavaScript)
+
+Asynchronous Events
+> Callbacks
+> Callback Hell
+> Promises
+> Promise APIs
