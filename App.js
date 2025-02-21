@@ -1,3 +1,24 @@
+/**
+ * HMR - Hot Module Replacement
+ * File Watcher Algorithm -  Written in C++
+ * BUNDLING
+ * MINIFY
+ * Cleaning our code
+ * Dev and Production Build
+ * Super fast build algorithm
+ * Image Optimization
+ * Caching while Development
+ * Compression
+ * Compatable with older versions of browser
+ * HTTPS on dev
+ * port Number
+ * Consistent with Hashing Algorithm
+ * Zero Config
+ * 
+ */
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const heading = React.createElement(
   "h1",
   {
