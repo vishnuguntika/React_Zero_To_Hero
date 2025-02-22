@@ -1,0 +1,88 @@
+1) What is NPM?
+Ans: There is no official name for this, usually we call it as a "Node Package Manager". But it can be a "No PICK me", "Nahi Patha Mujhe".
+
+2) What is `Parcel/Webpack`? Why do we need it?
+Ans: Parcel is a zero-config builder that automatically detects and optimizes dependencies, making it beginner-friendly and fast.
+
+Webpack - A highly configurable module bundler that allows for deep customization but requires manual configuration.
+
+We need this for:
+> Code Optimization and Bundling
+> Dependency management
+> HMR
+> Cross-Browser Compatibility
+> Improved Performance
+> Asset Handling
+
+
+3) What is `.parcel-cache'
+Ans: .parcel-cache is a folder a cache directory used by parcel to store intermediate build files and optimize the build process. It helps speed up rebuilds by avoiding unnecessary recompilation of unchanged files.
+
+
+4) What is `npx` ?
+Ans: npx is a node package execute is a command line tool that comes from Node.js, which was used to execute the node.js packages without globally installing them.
+
+5) What is difference between `dependencies` vs `devDependencies`
+
+Ans: Package.json contains two main sections for dependencies:
+
+dependencies: Required for production
+devDependencies: Required for development.
+
+6) What is Tree Shaking?
+Ans: Tree shaking is a "dead code elimination" technique used in JavaScript bundlers like webpack, parcel, etc to remove unused code from the final bundle. This helps reduce bundle size and improves performance.
+
+7) What is Hot Module Replacement?
+Ans: It is a feature in modern Javascript bundlers like webpack, parcel that updates modules in a running application without requiring a full page reload.
+
+8) List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words?
+Ans: Zero Config, Tree Shaking, HMR, Caching while development, HTTPS on dev.
+
+9) What is `.gitignore`? What should we add and not add into it?
+
+Ans: Its a ignore specific files and directories from beign tracked in the repository. This helps keep your repo clean and prevents unnecessary or sensitive files from beign committed.
+
+
+10) What is the difference between `package.json` and `package-lock.json`
+Ans: package.json to declare dependencies with flexible versions.
+
+pacakge-lock.json to lock exact versions of consistency.
+
+Never edit the package-lock.json, it automatically updates.
+
+We should ignore these files in git.
+
+11) Why should I not modify `package-lock.json`?
+Ans: Its a auto generated file by npm and serves a critical purpose in ensuring dependency version consistency across different environments. Manually modifying it can lead to serious issues.
+
+12)  What is `node_modules` ? Is it a good idea to push that on git?
+
+Ans: It is a directory used by Node.js applications to store all the dependencies i.e packages or libraries that are required for the application to run. it is not good to push on git. because it is in larger in size.
+
+13) What is the `dist` folder?
+Ans: The dist (short for "distribution") folder is commonly used in many development workflows to store the compiled or bundled version of your application. It typically contains the final output that’s ready for deployment or distribution.
+
+14) What is `browserlists`
+Ans: By using browserslist, you ensure that your application is compatible with the right range of browsers while avoiding unnecessary polyfills or transpilation for unsupported ones. It allows for better control over which browsers your code should be optimized for, leading to improved performance and a more manageable build process.
+
+15) Read about dif bundlers: vite, webpack, parcel
+
+Ans:
+
+Vite: Best for modern JavaScript frameworks (React, Vue, etc.) where speed and ease of use are prioritized. Ideal if you want minimal configuration and fast development.
+
+Webpack: The go-to choice for complex, large-scale applications that need deep customization, especially for legacy projects or when dealing with various assets and workflows.
+
+Parcel: Great for smaller to medium projects where ease of setup and quick bundling are important. A good choice when you don’t want to spend time configuring a complex build setup.
+
+
+16) Read about: ^ - caret and ~ - tilda
+
+Ans: Caret (^): Use it when you want to automatically get the latest minor and patch versions of a package, which should not break compatibility with your project.
+Tilde (~): Use it when you want to stick strictly to a specific minor version, only allowing patch updates to fix bugs, without introducing new features or breaking changes.
+
+17) Read about Script types in html (MDN Docs)
+Ans: 
+
+Scripts without the async, defer, or type="module" attributes, as well as inline scripts without the type="module" attribute, are fetched and executed immediately before the browser continues to parse the page. 
+DEVELOPER.MOZILLA.ORG
