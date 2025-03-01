@@ -2,19 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 
-const Title = () => (
-  <h1 id="title" key="h2">
-    Namaste React Guru
-  </h1>
-);
-
-// component composition.
 const HeaderComponent = () => {
   return (
-    <div>
-      <Title/>
-      <h2>Namaste React Functional Component</h2>
-      <h2>This is a h2</h2>
+    <div class="header">
+      <div class="Food">Food Logo</div>
+      <div class="Search">Search</div>
+      <div class="user">User</div>
     </div>
   );
 };
