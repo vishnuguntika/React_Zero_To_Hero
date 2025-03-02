@@ -47,3 +47,74 @@ Asynchronous Events
 > Callback Hell
 > Promises
 > Promise APIs
+
+
+---
+
+inline styling in react
+
+const jsx = (
+  <div
+  className="js"
+  style={{
+  backgroundColor: "yellow",
+  }}
+  >
+  <h1>JSX</h1>
+  <h1>Second JSX</h1>
+  </div>
+)
+
+or
+
+const styleName = {
+  backgroundColor: "yellow"
+  }
+
+
+
+inline styling in react
+
+const jsx = (
+  <div
+  className="js"
+  style={styleName}
+  >
+  <h1>JSX</h1>
+  <h1>Second JSX</h1>
+  </div>
+)
+
+
+dynamic data generation using map and foreach()
+
+// const Body = () => {
+//   return (
+//     <div className="Restaurant-list">
+      
+//       {
+//         // map() - traversing the info.
+//         // <RestaurantCard {...restaurantList[0].info} />
+//         restaurantList.map((restaurant) => {
+//           return <RestaurantCard {...restaurant.info} />
+//         })
+//       }
+     
+      
+//     </div>
+//   );
+// };
+
+const Body = () => {
+  const restaurantCards = [];
+
+  restaurantList.forEach((restaurant) => {
+    restaurantCards.push(<RestaurantCard {...restaurant.info} />);
+  });
+
+  return (
+    <div className="Restaurant-list">
+      {restaurantCards}
+    </div>
+  );
+};

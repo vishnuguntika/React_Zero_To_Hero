@@ -1,26 +1,37 @@
 .header{
-  display: grid;
-  grid-template-columns: 100px 1fr 100px;
-  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid black;
 }
 
-.Food{
-  background-color: orange;
-  margin-right: 10px;
-  text-align: center;
-  
-  
+
+.nav-items > ul{
+  list-style-type: none;
+  display: flex;
 }
 
-.Search{
-  background-color: yellow;
-  margin-right: 30px;
-  text-align: center;
-
+.nav-items > ul > li {
+  padding: 0px 10px 0px 10px;
 }
 
-.user{
-  background-color: green;
-  text-align: center;
- 
+.logo{
+  width: 100px;
+  height: 100px;
 }
+
+.card{
+  width: 200px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.card > img {
+  width: 100%;
+}
+
+.Restaurant-list{
+ display: flex;
+ flex-wrap: wrap;
+} 
