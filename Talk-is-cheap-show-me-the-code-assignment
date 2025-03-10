@@ -1,0 +1,114 @@
+1) Is JSX mandatory for React?
+Ans:
+Not at all. JSX is not mandatory for React; we can create an entire application solely using createElement(), without even touching JSX. However, its important to note that theres very very little reason to do so in React App.
+
+2) Is ES6 mandatory for React?
+Ans:
+No ES6 is not mandatory in React. We need to use some other imports like 'create-react-class' for using the components functionality.
+
+it is given in official docs, how we can use before es6 js code for react, we need to use some other imports, can be found in react docs in detail.
+
+
+3)  {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX ?
+
+Ans: All the sytax are same, which represents the functional component in react.
+
+4)  How can I write comments in JSX?
+Ans: I can write any format of js comments inside {} in JSX.
+
+5)  What is <React.Fragment></React.Fragment> and <></> ?
+Ans: React fragments lets you wrap list of react elements without adding any extra node to DOM.
+
+<></> is shorter syntax for React.Fragment, except <></> can not have any key or attributes.
+
+React.Fragment may have only key as an attribute.
+
+6)  What is Virtual DOM?
+Ans: 
+> Virtual DOM is programming concept not exclusive to react.
+
+> Where virtual representation of DOM/UI is kept in memory and synched with Real DOM by a library such as ReactDOM. (Reconciliation process).
+
+> In react Virtual DOM is represented by React Elements since they are objects representing the user interface.
+
+> React also uses internal objects called "fibres" to hold additional information about component tree. They may be considered a part of "Virtual DOM" implementation in react.
+
+> This enabled react to have declarative API, we just tell react what state UI needs to be in, and makes sure DOM matches that state. This abstracts all event handling, manual DOM updating we otherwise had to do manually.
+
+7)  What is Reconciliation in React?
+Ans:
+> It is process where react uses “diff” algorithm to compare old component tree to new one, so to render(update DOM) nodes of only changed react elements.
+
+> If elements are of different type in both trees, old one is destroyed new tree get mounted.
+
+> If there is change in attribute of element only that attribute or property gets updated.
+
+> The diffing starts from root element, and then recurses to children.
+
+> That is why react is fast, because ir uses “diff” algorithm.
+
+> Based on two assumptions :-
+
+* 1. Two elements of different types will produce different trees.
+
+* 2. The developer can hint at which child elements may be stable across different renders with a key prop.
+
+
+8)  What is React Fiber?
+Ans: 
+> It is re-implementation of react core “diff” algorithm.
+
+> The reconciler does the work of computing which parts of a tree have changed; the renderer then uses that information to actually update the rendered app.
+
+> This separation means that React DOM and React Native can use their own renderers while sharing the same reconciler, provided by React core.
+
+> Fiber reimplements the react reconciler. It is not principally concerned with rendering.
+
+9)  Why we need keys in React? When do we need keys in React?
+
+Ans: 
+> If we have same elements in react without unique attribute, react will mutate every child, even if not needed be. Example — when we add new <li> item over other <li> items.
+
+> For this react uses ‘key’ attribute, which must be unique to element.
+
+> Key need to be unique among similar sibling elements, not globally unique.
+
+> Keys should be stable, predictable, and unique. Unstable keys (like those produced by Math.random()) will cause many component instances and DOM nodes to be unnecessarily recreated, which can cause performance degradation and lost state in child components.
+
+10)  Can we use index as keys in React?
+Ans:
+
+> Although index as keys should not be preferred, as last resort we can use index as keys on elements that are not to be reordered.
+
+> if items get reordered it can cause performance issues, as when one element is deleted or added into list of items, other items shift from there place, thus changing there key value from earlier.
+
+> If the key is same as before React assumes that the DOM element represents the same component / element as before. But that is no longer true.
+
+
+11) What is props in React?
+Ans:
+
+> “props” stands for properties, are object argument with data.
+
+> JSX attribute and children are passed into single JS object, known as “props”
+
+> props are read-only.
+
+> A component must never modify their own props. (like pure functions).
+
+12) What is a Config Driven UI?
+Ans:
+> In config driven UI we keep config in JSON format, which can be used to do all the mundane and repetitive tasks of rendering.
+
+> we can write code to loop over the config, and for each entry in the config, we determine it’s component to be rendered based on type passed, and other data such as attributes etc.
+
+
+
+
+
+
+
+
+
+
+
