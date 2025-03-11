@@ -118,3 +118,9 @@ const Body = () => {
     </div>
   );
 };
+
+
+// const searchTxt = "KFC"; which we do in javascript
+
+  // searchText is a local state variable
+  const [searchTxt, setSearchTxt] = useState("KFC"); // returns = [variable name, function to update the variable]

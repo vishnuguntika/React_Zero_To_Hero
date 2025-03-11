@@ -1,0 +1,68 @@
+1)  What is the difference between Named Export, Default export and * as export?
+Ans: 
+
+Let's say we have a functional component as:
+
+const myComponent = () => {}; which we stored in Component folder.
+
+Named export can be used as:
+
+export const myComponent = () => {};
+
+to import this,
+we call as:
+import {myComponent} from "./Component/myComponent";
+
+Default export can be used as:
+
+const myComponent = () => {};
+
+export default mycomponent;
+
+to import this,
+
+import myComponent from "./Component/myComponent";
+
+
+* as export:
+
+where we can write as alias.
+
+import * as myComp from "./Component/myComponent";
+
+what if we want to import both named and default.
+
+import default, {Named} from "./Component/(foldername)";
+
+
+2) What is the use of config.js file?
+Ans:
+Config.js file is also known as constants.js file, which we can store the constants into that, and import as Named entities in to component file.
+
+It can use for to avoid the hard coding requirements.
+
+"The config.js file is like the backstage manager for your Next.js or React application. It's not something you'll find automatically in every project, but it serves as a hub where you can gather all the important configurations and settings."
+
+3)  What are React Hooks?
+
+Ans:
+React Hooks are a feature introduced in React 16.8 that allow you to use state and other React features in function components without writing a class. Hooks provide a more direct API to the React concepts you already know, such as state, context, refs, and lifecycle methods.
+
+4)  Why do we need a useState Hook?
+Ans:
+The useState hook in React allows you to add state variables to functional components. It returns an array with two elements: the current state and a function to update it.
+
+Example
+
+import { useState } from 'react';
+
+function Counter() {
+const [count, setCount] = useState(0);
+
+return (
+<div>
+<p>You clicked {count} times</p>
+<button onClick={() => setCount(count + 1)}>Click me</button>
+</div>
+);
+}

@@ -1,85 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
-/*
- * Header
- *    - Logo(title)
- *    - Nav Items (Right side)
- *    - Cart
- * Body
- *  - Search Bar
- *  - Restaurant List
- *    - Restaurant Card (many cards)
- *      - Image
- *      - Rating
- *      - Cuisines
- *
- * Footer
- *   - Links
- *   - Copyrights
- */
-
-const title = (
-  <a href="/">
-    <img
-      className="logo"
-      alt="logo"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYTKRFunqaUFSmy578bQDu0lhmRxAv0z57_8CwlyJp6uRDu5joa6YqBCt8vO56V-jxVg4&usqp=CAU"
-    />
-  </a>
-);
-
-const Header = () => {
-  return (
-    <div className="header">
-      {title}
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-// config Driven UI
-
-// const config = [
-//   {
-//     type: "Carousel",
-//     cards: [
-//       {
-//         offerName: "50% off"
-//       },
-//       {
-//         offerName: "No Delivery Charge"
-//       }
-//     ]
-//   },
-//   {
-//     type: "restaurantList",
-//     cards: [
-//       {
-//         name: "BurgerKing",
-//         image: "https://www.kitchensanctuary.com/wp-content/uploads/2024/07/Smash-Burgers-square-FS.jpg",
-//         cusines: ["Burger", "American"],
-//         rating: "4.2"
-//       },
-//       {
-//         name: "KFC",
-//         image: "https://www.kitchensanctuary.com/wp-content/uploads/2024/07/Smash-Burgers-square-FS.jpg",
-//         cusines: ["Burger", "American"],
-//         rating: "4.2"
-//       }
-//     ]
-//   }
-// ]
-
-const restaurantList = [
+// config driven UI
+export const restaurantList = [
   {
+    type: "restaurant",
     info: {
       id: "10894",
       name: "Pizza Hut",
@@ -96,6 +20,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "211192",
       name: "La Pino'z Pizza",
@@ -112,6 +37,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "477963",
       name: "The Belgian Waffle Co.",
@@ -129,6 +55,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "23683",
       name: "McDonald's",
@@ -146,6 +73,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "255038",
       name: "Andhra Gunpowder",
@@ -162,6 +90,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "240178",
       name: "Leon's - Burgers & Wings (Leon Grill)",
@@ -179,6 +108,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "290271",
       name: "Thalairaj Biryani",
@@ -202,6 +132,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "17312",
       name: "KFC",
@@ -219,6 +150,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "49704",
       name: "California Burrito",
@@ -243,6 +175,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "246645",
       name: "Great Indian Khichdi by EatFit",
@@ -270,6 +203,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "643652",
       name: "WeFit - Protein Bowls, Salads & Sandwiches",
@@ -287,6 +221,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "750212",
       name: "Daily Kitchen - Homely Meals",
@@ -304,6 +239,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "390045",
       name: "NH1 Bowls - Highway To North",
@@ -321,6 +257,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "374525",
       name: "Kwality Walls Frozen Dessert and Ice Cream Shop",
@@ -338,6 +275,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "758321",
       name: "NIC Ice Creams",
@@ -355,6 +293,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "590119",
       name: "Bakingo",
@@ -372,6 +311,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "399138",
       name: "Aubree",
@@ -388,6 +328,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "108097",
       name: "Ambur Star Briyani Since 1890",
@@ -404,6 +345,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "622017",
       name: "MOJO Pizza - 2X Toppings",
@@ -421,6 +363,7 @@ const restaurantList = [
     },
   },
   {
+    type: "restaurant",
     info: {
       id: "558760",
       name: "HRX by EatFit",
@@ -437,62 +380,3 @@ const restaurantList = [
     },
   },
 ];
-
-const RestaurantCard = ({
-  // props - passing an arguments
-  name,
-  cuisines,
-  deliveryTime,
-  cloudinaryImageId,
-}) => {
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{deliveryTime} minutes</h4>
-    </div>
-  );
-};
-
-// no key (not acceptable) <<<<<<<<<<<< index key (use ONLY if you don't have anythings) <<<< unique key (best practice)
-const Body = () => {
-  return (
-    <div className="Restaurant-list">
-      {
-        // map() - traversing the info.
-        // <RestaurantCard {...restaurantList[0].info} />
-        restaurantList.map((restaurant) => {
-          return (
-            <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
-          );
-        })
-      }
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <h4>Footer</h4>;
-};
-
-// JSX must have one parent component
-// React.Fragment is a component from React. It is a like a empty tag.
-const AppLayout = () => {
-  return (
-    // React.Fragment is also written as empty tag
-    <>
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
