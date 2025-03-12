@@ -1,0 +1,14 @@
+Chapter-6: Exploring the World
+---------------------------------
+
+1. What is Microservice?
+Ans:
+
+Dividing a Project into chunks of parts.
+Like: UI, Backend,Notification, Logs, Authentificatin, etc...
+Where we can write any programming code language of our chunks.
+
+Ex: Food Villa as UI.
+
+So, we can deploy separately, if they need to change any part of project.
+

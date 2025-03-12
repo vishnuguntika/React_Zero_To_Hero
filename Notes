@@ -124,3 +124,16 @@ const Body = () => {
 
   // searchText is a local state variable
   const [searchTxt, setSearchTxt] = useState("KFC"); // returns = [variable name, function to update the variable]
+
+
+
+  ---------------------------------
+
+  To fetch the API, we have 2 ways to do this:
+
+  1) First Loads the Page => API (300ms) => render the page (200ms) and total it takes 500ms
+
+  2) First Loads the Page => render the page => API(useEffect) => update UI. (Best Way)
+
+  We can do this using the useEffect() hook function.
+

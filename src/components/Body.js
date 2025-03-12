@@ -1,17 +1,62 @@
 import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
-function filterData(searchTxt, restaurants){
-  return restaurants.filter((restaurant) => restaurant.info.name.includes(searchTxt));
-  
-    
+function filterData(searchTxt, restaurants) {
+  return restaurants.filter((restaurant) =>
+    restaurant?.info?.name?.toLowerCase()?.includes(searchTxt.toLowerCase())
+  );
 }
 const Body = () => {
-  const [restaurants, setRestaurants] = useState(restaurantList);
-  const [searchTxt, setSearchTxt] = useState(""); // returns = [variable name, function to update the variable], can pass the dafault value. 
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const[filteredRestaurant, setFilteredRestaurant] = useState([]);
+  // const [restaurants, setRestaurants] = useState(restaurantList);
+  const [searchTxt, setSearchTxt] = useState(""); // returns = [variable name, function to update the variable], can pass the dafault value.
+
+  // useEffect has two things callback function and dependency.
+  // we need to call useEffect only on when searchTxt is called.
+
+  // empty dependency array => once after render
+  // dependency array [searchTxt] => once after initial render + everytime ater render (my searchTxt changes)
+  useEffect(() => {
+    // API call
+    getRestaurants();
+  }, []);
+
+  async function getRestaurants() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9046136&lng=77.614948&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    //Optional Chaining
+    setAllRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  }
+
+  console.log("render");
+
+  //conditional Rendering
+
+  // if restaurant is empty ==> shimmer UI
+  // if restaurant has data ==> actual data UI
   
-  return (
+  // early return (not render component) - when there is no allRestaurants
+  if(!allRestaurants) return null;
+
+
+  // if(filteredRestaurant?.length === 0) return <h1>No Restaurant match your filter</h1>
+
+
+
+  return allRestaurants?.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <input
@@ -19,26 +64,28 @@ const Body = () => {
           className="search-input"
           placeholder="Search"
           value={searchTxt}
-          onChange={(e) =>{
+          onChange={(e) => {
             // e.target.value = whatever we write in input.
-             setSearchTxt(e.target.value);
+            setSearchTxt(e.target.value);
           }}
         />
-        <button className="search-btn" onClick={() =>{
-         // need to filter the data
-         const data = filterData(searchTxt, restaurants);
-         // update the state - restaurants
-         setRestaurants(data);
-          
-        } }>Search</button>
+        <button
+          className="search-btn"
+          onClick={() => {
+            // need to filter the data
+            const data = filterData(searchTxt, allRestaurants);
+            // update the state - restaurants
+            setFilteredRestaurant(data);
+          }}
+        >
+          Search
+        </button>
       </div>
-
 
       <div className="Restaurant-list">
         {
-          // map() - traversing the info.
-          // <RestaurantCard {...restaurantList[0].info} />
-          restaurants.map((restaurant) => {
+          /**You have to write the logic, when the filtered Restaurant not there. */
+          filteredRestaurant.map((restaurant) => {
             return (
               <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
             );
