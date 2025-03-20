@@ -137,3 +137,14 @@ const Body = () => {
 
   We can do this using the useEffect() hook function.
 
+
+
+  // Never create a functional component inside the functional component again.
+
+  // Never write the useState() hook function inside the if condition.
+
+  // Never write the useState() hook function inside the for loop.
+
+  // Never use the useState() hook function outside the functional component.
+   
+

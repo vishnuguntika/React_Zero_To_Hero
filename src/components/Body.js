@@ -2,6 +2,7 @@ import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import {Link} from "react-router-dom";
 
 function filterData(searchTxt, restaurants) {
   return restaurants.filter((restaurant) =>
@@ -10,7 +11,7 @@ function filterData(searchTxt, restaurants) {
 }
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
-  const[filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   // const [restaurants, setRestaurants] = useState(restaurantList);
   const [searchTxt, setSearchTxt] = useState(""); // returns = [variable name, function to update the variable], can pass the dafault value.
 
@@ -22,14 +23,15 @@ const Body = () => {
   useEffect(() => {
     // API call
     getRestaurants();
-  }, []);
+  }, []); // here, there is no dependency so it renders after the render.
+  // If there, is no dependency as no array itself, then it calls for every render.
 
   async function getRestaurants() {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9046136&lng=77.614948&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     //Optional Chaining
     setAllRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -45,14 +47,11 @@ const Body = () => {
 
   // if restaurant is empty ==> shimmer UI
   // if restaurant has data ==> actual data UI
-  
+
   // early return (not render component) - when there is no allRestaurants
-  if(!allRestaurants) return null;
+  if (!allRestaurants) return null;
 
-
-  // if(filteredRestaurant?.length === 0) return <h1>No Restaurant match your filter</h1>
-
-
+  // if(filteredRestaurant?.length === 0) return <h1>No Restaurant match your filter</h1> -- Done, implemented.
 
   return allRestaurants?.length === 0 ? (
     <Shimmer />
@@ -84,12 +83,20 @@ const Body = () => {
 
       <div className="Restaurant-list">
         {
-          /**You have to write the logic, when the filtered Restaurant not there. */
-          filteredRestaurant.map((restaurant) => {
-            return (
-              <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
-            );
-          })
+          // Ternary operator.
+          filteredRestaurant.length === 0 ? (
+            <h1>No Restaurant matches your filter</h1>
+          ) : (
+            /**You have to write the logic, when the filtered Restaurant not there. */
+            filteredRestaurant.map((restaurant) => {
+              return (
+                <Link to={"/restaurant/" + restaurant.info.id} 
+                key={restaurant.info.id}>
+                <RestaurantCard {...restaurant.info}  />
+                </Link>
+              );
+            })
+          )
         }
       </div>
     </>
